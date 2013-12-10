@@ -10,10 +10,11 @@ import sys
 import string
 def getNPIchecksum(npiLeft=''):
     """Accepts first 9 or 14 digits of 10- or 15-digit NPI as a string or int and 
-    returns the last (checksum) digit as a string.  If 10-digit format is used 
-    (leftmost 9 digits supplied), USA prefix of 80840 is assumed."""
+    returns the last (checksum) digit as a string, or a longer descriptive string on
+    an error.  If 10-digit format is used (leftmost 9 digits supplied), USA prefix 
+    of 80840 is assumed."""
     
-    #if input is not a string, convert it first for easy manipulation
+    #if input is not a string, convert it first for easier manipulation
     if type(npiLeft)!=type('string'):
         npiLeft=str(npiLeft)
     if npiLeft.isdigit() and (len(npiLeft)==9 or len(npiLeft)==14):
